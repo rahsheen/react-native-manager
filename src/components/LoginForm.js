@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text } from 'react-native'
 import { connect } from 'react-redux'
-import { emailChanged, passwordChanged, loginUser } from '../actions'
+import { emailChanged, passwordChanged, loginUser, googleLogin } from '../actions'
 import { Card, CardSection, Input, Button, Spinner } from './common'
 
 
@@ -18,7 +18,7 @@ class LoginForm extends Component {
     onButtonPressed() {
         const { email, password } = this.props
 
-        this.props.loginUser({ email, password })
+        this.props.googleLogin()
     }
 
     renderButton() {
@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
         return (
             <Button onPress={this.onButtonPressed.bind(this)}>
-                Login
+                Google Connect
             </Button>
         )
     }
@@ -87,5 +87,5 @@ const mapStateToProps = ({ auth }) => {
 }
 
 export default connect(mapStateToProps, {
-    emailChanged, passwordChanged, loginUser
+    emailChanged, passwordChanged, loginUser, googleLogin
 })(LoginForm)
