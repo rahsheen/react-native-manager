@@ -18,17 +18,17 @@ class LoginForm extends Component {
     onButtonPressed() {
         const { email, password } = this.props
 
-        this.props.googleLogin()
+        this.props.loginUser({email, password})
     }
 
     renderButton() {
-        if(this.props.loading) {
+        if (this.props.loading) {
             return <Spinner size="large" />
         }
 
         return (
             <Button onPress={this.onButtonPressed.bind(this)}>
-                Google Connect
+                Login
             </Button>
         )
     }
@@ -61,6 +61,9 @@ class LoginForm extends Component {
 
                 <CardSection>
                     {this.renderButton()}
+                    <Button onPress={this.props.googleLogin.bind(this)}>
+                        Google Login
+                    </Button>
                 </CardSection>
             </Card>
         )
