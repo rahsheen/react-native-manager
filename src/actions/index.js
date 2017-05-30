@@ -57,7 +57,7 @@ export const googleLogin = () => {
             callback: 'biz.sheenonline:/oauth2redirect',
         }).then(info => {
             // info.user - user details from the provider
-            // info.credentials - tokens from the provider
+            // info.pcredentials - tokens from the provider
             loginUserSuccess(dispatch, info.user)
 
             dispatch({
